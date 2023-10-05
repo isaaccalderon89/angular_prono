@@ -1,0 +1,15 @@
+<p> La ultima serie que he visto es {{ ultimaSerie}} tiene un total de {{nCapitulos}} capitulos, y cada capitulo dura {{duracion}}</p> <!--Usando interpolación de String-->
+<img [src]="portadaSerie" alt="Portada de Jury Duty" width="300"> <!--Usando Property Binding -->
+<br/>
+<button type="button" (click)="masInfo()">Pulsa para descargar</button> <!--Usando Event Biding-->
+<br/>
+<p>Indica que genero de serie me recomiendas</p>
+<p> La recomendacion es {{generoSeleccionado}}</p>
+<select [(ngModel)]="generoSeleccionado">
+    <option value="thriller">Thriller e intriga</option>
+    <option value="cifi">Ciencia ficción</option>
+    <option value="drama">Dramas</option>
+    <option value="comedia">Comedia</option>
+    <option value="terror">Terror</option>
+    <option value="animacion">Animación</option>
+</select>

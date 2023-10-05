@@ -1,0 +1,27 @@
+<h2>Tema 1: Data binding</h2>
+
+<h3>String interporlation</h3>
+
+<p>Me llamo {{nombre}} {{apellido}}</p>
+<p>Probando con función {{getNombreCompleto()}} ...no es muy recomendable</p>
+<p>Probando desde una propiedad GETTER {{nombreCompleto}}</p>
+
+
+<h3>Porperty Binding</h3> <!-- Asginar propiedades de la clase TS a etiquetas HTML -->
+
+<img [src]="logoAngular" alt="logo de Angular" width="100" />
+<img src="{{logoAngular}}" alt="logo de Angular" width="100" /> <!-- este no es recomendable salvo excepcion-->
+<img [src]="logo.url" alt=" logo de {{logo.nombre}}" width="100">
+
+
+<h3>Event Binding</h3> <!-- Para asignar eventos-->
+<button type="button" (click)="changeNumClicks()">Mostrar clicks</button>
+
+<input type="text" (change)="changeNombre($event)"><!-- Para poder pasar el evento-->
+
+
+<h3>Two Way Binding</h3>
+<!-- Es la mezcla de las dos anterios -->
+<input type="text" [(ngModel)]="nombre">
+
+<input type="text" [value]="nombre" (input)="changeNombre($event)">

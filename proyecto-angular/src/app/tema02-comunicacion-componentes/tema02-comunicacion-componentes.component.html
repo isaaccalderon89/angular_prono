@@ -1,0 +1,19 @@
+<h2>Comunicacion entre componentes</h2>
+
+<h3>@Input</h3>
+<div class="flex">
+    <app-sugus [sugus]="sugusFresa"></app-sugus>
+    <app-sugus [sugus]="sugusNaranja"></app-sugus>
+    <app-sugus></app-sugus>
+</div>
+
+<h3>@Output</h3>
+
+<div class="flex">
+    <app-producto *ngFor="let productoItem of productos" [producto]="productoItem" (onAddToCart)="addProductoToCard($event)"></app-producto>
+</div>
+
+<div>
+    Carrito:
+    <pre>{{carrito | json}}</pre>
+</div>

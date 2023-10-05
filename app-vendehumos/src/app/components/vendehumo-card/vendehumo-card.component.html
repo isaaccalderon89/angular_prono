@@ -1,0 +1,15 @@
+<div class="vendehumo-card">
+    <h1>Vende Humos</h1>
+    <div class="vendehumo-card-header">
+        <img [src]="vendehumo.foto" alt="logo de vende humo" width="600"> <!--Usando Property Binding-->
+    </div>  
+    <div class="vendehumo-card-body">  
+        <h3> Te presentamos: {{vendehumo.id}}</h3> <!--Usando string interpolation-->
+        <p> Nombre: {{vendehumo.nombre}}</p>
+        <p> Categoria: {{vendehumo.categoria}}</p>
+        <h3>Pulsa para votar</h3>
+        <button  type="button" (click)="changeNumVoto()">Votos: {{vendehumo.numVotos}}</button>
+    </div>
+</div>
+
+

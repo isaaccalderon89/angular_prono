@@ -1,0 +1,85 @@
+<h2>Tema 03: Directivas</h2>>
+
+<h3>De atributo</h3>  <!--EJEMPLO: ngModel, ngStyle-->
+
+<div>
+    <label for="inputFondoNegro"> Aplicar el fondo negro?
+    <input type="checkbox"[(ngModel)]="aplicarFondoNegro">
+    </label>
+    <label for="inputLetraNaranja"> Aplicar letra Naranja
+    <input type="checkbox"[(ngModel)]="aplicarLetraNaranja">
+    </label>
+</div>
+
+<p [ngClass]="clases1">El fondo se pinta en negro y la letra naranja</p>
+<p [ngClass]="clases2">El fondo se pinta en azul y la letra blanca</p>
+
+<p appBlink ="red">Este párrafo parpadea si pasas el ratón por encima</p>
+<p appBlink ="black">Este párrafo parpadea si pasas el ratón por encima</p>
+<p appBlink ="blue">Este párrafo parpadea si pasas el ratón por encima</p>
+
+
+
+
+<h3>Estructurales</h3> <!--Porque modificamos la estructura del código van con un * delante para direferenciarla de las otras-->
+
+<!--<div *ngIf="isLoggedIn">
+    <p>Bienvenido {{usuario}}</p>
+    <button type="button" (click)="logout()">Logout</button>
+</div>
+
+<div *ngIf="!isLoggedIn">
+    <p>Logueate haz el favor</p>
+    <button type="button" (click)="login()">Login</button>
+</div>-->
+
+<div *ngIf="isLoggedIn; else notLoggedIn"><!--Esto es mejor en aplicaciones grandes-->
+    <p>Bienvenido {{usuario}}</p>
+    <button type="button" (click)="logout()">Logout</button>
+</div>
+
+<ng-template #notLoggedIn> <!--con la almohadilla hacemos una referencia-->
+    <div *ngIf="!isLoggedIn">
+        <p>Logueate haz el favor</p>
+        <button type="button" (click)="login()">Login</button>
+    </div>
+</ng-template>
+
+<div class="flex">
+    <app-sugus *ngFor="let sugusItem of listaSugus; " [sugus]="sugusItem"></app-sugus>
+</div>
+
+<table>
+    <thead>
+      <tr>
+        <th>Nº</th>
+        <th>Contacto</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let contactoItem of contactos; let par = even; let impar = odd; let esPrimero = first; let esUltimo = last; let posicion = index; let totalItems = count" 
+          [ngClass]="{esPar: par, esPrimero: esPrimero, esUltimo: esUltimo}">
+        <td>{{posicion + 1}} / {{totalItems}}</td>
+        <td>{{contactoItem}}</td>
+      </tr>
+    </tbody>
+  </table>
+<br/>
+
+  <div>
+    <label for="mascota">Selecciona que mascota tienes:</label>
+    <select id="mascota" [(ngModel)]="miMascota">
+        <option *ngFor="let mascota of mascotas" [value]="mascota">{{mascota}}</option>
+    </select>
+  </div>
+
+  <div [ngSwitch]="miMascota">
+    <ng-container *ngFor="let mascota of mascotas">
+        <p *ngSwitchCase="mascota">Tengo un {{mascota}}</p>
+    </ng-container>
+    <!--
+    <p *ngSwitchCase="'gato'">Tengo un gato</p>
+    <p *ngSwitchCase="'periquito'">Tengo un periquito</p>
+    <p *ngSwitchCase="'canario'">Tengo un canario</p>
+    <p *ngSwitchDefault>Tengo otra mascota</p>-->
+  </div>
