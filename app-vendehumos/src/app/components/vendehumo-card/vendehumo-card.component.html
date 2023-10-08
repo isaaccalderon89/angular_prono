@@ -1,4 +1,4 @@
-<div class="vendehumo-card">
+<div class="vendehumo-card" *ngIf="vendehumo; else loadingData">
     <h1>Vende Humos</h1>
     <div class="vendehumo-card-header">
         <img [src]="vendehumo.foto" alt="logo de vende humo" width="600"> <!--Usando Property Binding-->
@@ -11,5 +11,9 @@
         <button  type="button" (click)="changeNumVoto()">Votos: {{vendehumo.numVotos}}</button>
     </div>
 </div>
+
+<ng-template #loadingData>
+    <p>Loading...</p>
+  </ng-template>
 
 
