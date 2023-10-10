@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 import { Tema01DataBindingComponent } from './tema01-data-binding/tema01-data-binding.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Tema02ComunicacionComponentesComponent } from './tema02-comunicacion-componentes/tema02-comunicacion-componentes.component';
 import { SugusComponent } from './tema02-comunicacion-componentes/sugus/sugus.component';
 import { Tema03DirectivasComponent } from './tema03-directivas/tema03-directivas.component';
@@ -13,6 +13,15 @@ import { Tema04ReferenciasComponent } from './tema04-referencias/tema04-referenc
 import { Tema05PipesComponent } from './tema05-pipes/tema05-pipes.component';
 import { EllipsisPipe } from './tema05-pipes/pipes/ellipsis.pipe';
 import { FiltrarPipe } from './tema05-pipes/pipes/filtrar.pipe';
+import { Tema06FormulariosComponent } from './tema06-formularios/tema06-formularios.component';
+import { ReactivoComponent } from './tema06-formularios/reactivo/reactivo.component';
+import { PlantillaComponent } from './tema06-formularios/plantilla/plantilla.component';
+import { Tema07ServiciosComponent } from './tema07-servicios/tema07-servicios.component';
+import { FormLoginComponent } from './tema07-servicios/form-login/form-login.component';
+import { Tema08ObservablesComponent } from './tema08-observables/tema08-observables.component';
+import { ContadorComponent } from './tema08-observables/contador/contador.component';
+import { Tema09HttpComponent } from './tema09-http/tema09-http.component';
+import { HttpClientModule } from '@angular/common/http'
 
 
 @NgModule({
@@ -27,11 +36,21 @@ import { FiltrarPipe } from './tema05-pipes/pipes/filtrar.pipe';
     Tema04ReferenciasComponent,
     Tema05PipesComponent,
     EllipsisPipe,
-    FiltrarPipe
+    FiltrarPipe,
+    Tema06FormulariosComponent,
+    ReactivoComponent,
+    PlantillaComponent,
+    Tema07ServiciosComponent,
+    FormLoginComponent,
+    Tema08ObservablesComponent,
+    ContadorComponent,
+    Tema09HttpComponent
   ],
   imports: [
     BrowserModule, 
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

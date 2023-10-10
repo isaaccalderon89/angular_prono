@@ -40,4 +40,21 @@ export class AppComponent {
     }
   ]
 
+  categoriaSeleccionada: string | null = null
+
+  votarVendehumo(vendehumoId: string){
+    //[1,2,3,4,2].filter(num => num ===2)=> [2,2]
+    //[1,2,3,4,2].find(num => num ===2)=> 2
+    //[1,2,3,4,2].map(num => num * 2)=> [2,4,6,2]
+    this.listaVendeHumos.map((vendehumo: Vendehumo) =>{
+      if(vendehumo.id === vendehumoId){
+        return{
+          ... vendehumo,
+          numVotos: vendehumo.numVotos + 1
+        }
+      }
+      return vendehumo
+    })
+  }
+
 }
